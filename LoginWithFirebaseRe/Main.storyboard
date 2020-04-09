@@ -132,13 +132,13 @@
                     <connections>
                         <outlet property="emailTextField" destination="i4T-uO-djQ" id="lON-xV-rz3"/>
                         <outlet property="passwordTextField" destination="vmS-lL-Vsi" id="IXs-ix-Wzg"/>
-                        <outlet property="registerButton" destination="NLb-AQ-Ak7" id="hxX-Bu-z65"/>
+                        <outlet property="registerButton" destination="NLb-AQ-Ak7" id="DL7-Hb-Yoa"/>
                         <outlet property="usernameTextField" destination="Yen-Zr-k9Y" id="bGy-zE-HFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1065" y="-132"/>
+            <point key="canvasLocation" x="-641" y="-163"/>
         </scene>
     </scenes>
 </document>

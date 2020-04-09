@@ -15,6 +15,7 @@
 		18F31508243EF7D10081576E /* LoginWithFirebaseReTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F31507243EF7D10081576E /* LoginWithFirebaseReTests.swift */; };
 		18F31513243EF7D10081576E /* LoginWithFirebaseReUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F31512243EF7D10081576E /* LoginWithFirebaseReUITests.swift */; };
 		18F31521243EF8540081576E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18F31520243EF8540081576E /* Main.storyboard */; };
+		18F31523243EFD150081576E /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F31522243EFD150081576E /* UIColor-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		18F31512243EF7D10081576E /* LoginWithFirebaseReUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithFirebaseReUITests.swift; sourceTree = "<group>"; };
 		18F31514243EF7D10081576E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18F31520243EF8540081576E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		18F31522243EFD150081576E /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				18F314F4243EF7CD0081576E /* ViewController.swift */,
 				18F31520243EF8540081576E /* Main.storyboard */,
 				18F314F9243EF7D10081576E /* Assets.xcassets */,
+				18F31522243EFD150081576E /* UIColor-Extension.swift */,
 				18F314FB243EF7D10081576E /* LaunchScreen.storyboard */,
 				18F314FE243EF7D10081576E /* Info.plist */,
 			);
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F314F5243EF7CD0081576E /* ViewController.swift in Sources */,
+				18F31523243EFD150081576E /* UIColor-Extension.swift in Sources */,
 				18F314F1243EF7CD0081576E /* AppDelegate.swift in Sources */,
 				18F314F3243EF7CD0081576E /* SceneDelegate.swift in Sources */,
 			);
