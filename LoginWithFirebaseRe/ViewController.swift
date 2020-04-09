@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
@@ -14,7 +15,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBAction func tappedRegisterButton(_ sender: Any) {
-        print("asd")
+        handleAuthToFirebase()
+    }
+    
+    private func handleAuthToFirebase() {
+     guard let email = emailTextField.text else { return }
+     guard let password = passwordTextField.text else { return }
+        Auth.auth().createUser(withEmail: email, password: password) { (res, error) in
+            if let err = error {
+                print("보존실패 \(err)")
+                return
+            }
+            print("보존성공")
+        }
     }
     
     override func viewDidLoad() {
