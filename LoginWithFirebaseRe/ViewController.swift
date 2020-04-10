@@ -8,26 +8,101 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+import PKHUD
+
+struct User {
+    let name: String
+    let createdAt: Timestamp
+    let email: String
+    
+    init(dic: [String: Any]) {
+        self.name = dic["name"] as! String
+        self.createdAt = dic["createdAt"] as! Timestamp
+        self.email = dic["email"] as! String
+    }
+}
 
 class ViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
+    
     @IBAction func tappedRegisterButton(_ sender: Any) {
         handleAuthToFirebase()
     }
+    @IBAction func tappedAlreadyHaveAccountButton(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier:
+            "LoginViewController") as! LoginViewController
+        navigationController?.pushViewController(homeViewController, animated: true)
+    }
     
     private func handleAuthToFirebase() {
-     guard let email = emailTextField.text else { return }
-     guard let password = passwordTextField.text else { return }
+    HUD.show(.progress, onView: view)
+    guard let email = emailTextField.text else { return }
+    guard let password = passwordTextField.text else { return }
         Auth.auth().createUser(withEmail: email, password: password) { (res, error) in
-            if let err = error {
-                print("보존실패 \(err)")
-                return
+        if let err = error {
+            print("보존실패 \(err)")
+            HUD.hide() { (_) in
+                HUD.flash(.success, delay: 1)
             }
-            print("보존성공")
+            return
         }
+            self.addUserInfoToFirestore(email: email)
+
+        }
+    }
+    
+    private func addUserInfoToFirestore(email: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let name = self.usernameTextField.text else { return }
+        
+        let docData = ["email": email,"name": name,"createdAt": Timestamp()] as [String: Any]
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        
+        userRef.setData(docData) { (error) in
+                if let err = error {
+                    print("Firestore 에 보존 실패 \(err)")
+                    HUD.hide() { (_) in
+                        HUD.flash(.success, delay: 1)
+                    }
+                    return
+                }
+                print("Firestore 에 보존성공")
+
+                userRef.getDocument { (snapshot, error) in
+                if let err = error {
+                    print("유저등록 실패\(err)")
+                    HUD.hide() { (_) in
+                        HUD.flash(.success, delay: 1)
+                    }
+                    return
+                }
+                
+                    guard let data = snapshot?.data() else { return }
+                    let user = User.init(dic: data)
+                    
+                    print("유저등록 성공 \(user.name)")
+                    HUD.hide() { (_) in
+//                        HUD.flash(.success, delay: 1)
+                        HUD.flash(.success, onView: self.view, delay: 1) { (_) in
+                            self.presentToHomeViewController(user: user)
+                        }
+                    }
+            }
+        }
+    }
+    
+    private func presentToHomeViewController(user: User) {
+        let storyBoard = UIStoryboard(name: "Home", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        homeViewController.user = user
+        homeViewController.modalPresentationStyle = .fullScreen
+        self.present(homeViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -44,6 +119,12 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.isHidden = true
     }
     
     @objc func showKeyboard(notification: Notification) {

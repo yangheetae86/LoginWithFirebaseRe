@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="T6V-4Z-Wa0">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sEY-6m-Pye" customClass="HomeViewController" customModule="LoginWithFirebaseRe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lU6-7g-eVL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welclome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="duK-fj-3D3">
+                                <rect key="frame" x="82" y="184" width="250.5" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환영 합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wqw-a8-dID">
+                                <rect key="frame" x="158.5" y="356" width="97" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="test@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-zf-dkh">
+                                <rect key="frame" x="145.5" y="400" width="123" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성일:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlS-zO-n8K">
+                                <rect key="frame" x="182.5" y="441" width="49" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNL-3s-Zhy">
+                                <rect key="frame" x="107" y="532" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JVe-mM-dxc"/>
+                                    <constraint firstAttribute="width" constant="200" id="eSQ-xb-Qqj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButton:" destination="sEY-6m-Pye" eventType="touchUpInside" id="sOM-lO-FfQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ff7-zf-dkh" firstAttribute="centerX" secondItem="lU6-7g-eVL" secondAttribute="centerX" id="9Ho-bp-W2Q"/>
+                            <constraint firstItem="XlS-zO-n8K" firstAttribute="centerX" secondItem="lU6-7g-eVL" secondAttribute="centerX" id="Gh3-jE-9y4"/>
+                            <constraint firstItem="Wqw-a8-dID" firstAttribute="centerX" secondItem="lU6-7g-eVL" secondAttribute="centerX" id="HTs-8b-8Kf"/>
+                            <constraint firstItem="XlS-zO-n8K" firstAttribute="top" secondItem="Ff7-zf-dkh" secondAttribute="bottom" constant="20" id="TNY-HV-bXh"/>
+                            <constraint firstItem="eNL-3s-Zhy" firstAttribute="centerX" secondItem="lU6-7g-eVL" secondAttribute="centerX" id="Zug-9D-ucT"/>
+                            <constraint firstItem="Ff7-zf-dkh" firstAttribute="top" secondItem="Wqw-a8-dID" secondAttribute="bottom" constant="20" id="bMH-gU-JTZ"/>
+                            <constraint firstItem="duK-fj-3D3" firstAttribute="centerX" secondItem="lU6-7g-eVL" secondAttribute="centerX" id="gdF-5L-URF"/>
+                            <constraint firstItem="eNL-3s-Zhy" firstAttribute="top" secondItem="XlS-zO-n8K" secondAttribute="bottom" constant="70" id="mO4-X4-S0l"/>
+                            <constraint firstItem="duK-fj-3D3" firstAttribute="top" secondItem="Cs5-0e-tMZ" secondAttribute="top" constant="140" id="xnq-Y7-dKl"/>
+                            <constraint firstItem="Wqw-a8-dID" firstAttribute="top" secondItem="duK-fj-3D3" secondAttribute="bottom" constant="100" id="zI8-UY-33w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cs5-0e-tMZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="XlS-zO-n8K" id="hlA-T4-aEo"/>
+                        <outlet property="emailLabel" destination="Ff7-zf-dkh" id="m1q-kP-465"/>
+                        <outlet property="logoutButton" destination="eNL-3s-Zhy" id="4y6-dt-we4"/>
+                        <outlet property="nameLabel" destination="Wqw-a8-dID" id="qgT-TB-UyL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdm-sc-iec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-223" y="-165"/>
+        </scene>
+    </scenes>
+</document>
